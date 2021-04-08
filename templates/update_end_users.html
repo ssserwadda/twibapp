@@ -1,0 +1,35 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+
+<div class="div2">
+
+        
+        <form method="POST" action="/update_end_users/{{ end_user.id }}">
+    
+            <p><label for="stno">Stno:</label>
+            <input type="text" class="form-control" name="stno" value="{{ end_user.stno }}"></p>
+
+            <p><label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" value="{{ end_user.name }}"></p>
+
+            <p><label for="company">Company:</label>
+            <input type="text" class="form-control" name="company" value="{{ end_user.company }}"></p>
+
+            <p><label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="{{ end_user.email }}"></p>
+
+            <p><label for="phone">Phone:</label>
+            <input type="text" class="form-control" name="phone" value="{{ end_user.phone }}"></p>
+
+            <p><label for="Branch">Branch:</label>
+            <input type="text" class="form-control" name="branch" value="{{ end_user.branch }}"></p>
+
+
+            <button class="button is-block is-info is-large is-fullwidth">update</button>
+
+            <a href="{{ url_for('main.show_end_users') }}" class="button">Back</a>
+        </form>
+</div>
+{% endblock %}

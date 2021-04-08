@@ -1,0 +1,49 @@
+{% extends "base5.html" %}
+
+{% block content %}
+      <h3>
+       ALL SERVICE PROVIDERS
+          
+      </h3>
+      
+
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Service</th>
+               <th>Location</th>
+               <th>Email</th>
+
+               <th>NSSF branch</th>
+
+               <th>General limit</th>
+               <th>Unit cost</th>
+               <th>Modify</th>
+               <th>Delete</th>               
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for sp in sps %}
+               <tr>
+                  <td>{{ sp.name }}</td>
+                  <td>{{ sp.service }}</td>
+                  <td>{{ sp.location }}</td>
+                  <td>{{ sp.email }}</td>
+
+                  <td>{{ sp.nssf_branch }}</td>
+
+                  <td>{{ sp.max_num }}</td>
+                  <td>{{ sp.unit_cost }}</td>
+                  <td><a href="/update_providers/{{sp.id}}">Modify</a></td>
+                  <td><a href="/delete_providers/{{sp.id}}" >Delete</a></td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+
+<div class="div2">
+   
+        
+        <form method="POST" action="/update_providers/{{ svc_provider.id }}">
+    
+            <p><label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" value="{{ svc_provider.name }}"></p>
+
+            <p><label for="service">Service:</label>
+            <input type="text" class="form-control" name="service" value="{{ svc_provider.service }}"></p>
+
+            <p><label for="location">Location:</label>
+            <input type="text" class="form-control" name="location" value="{{ svc_provider.location }}"></p>
+
+            <p><label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="{{ svc_provider.email }}"></p>
+
+            <p><label for="phone">Phone:</label>
+            <input type="text" class="form-control" name="phone" value="{{ svc_provider.phone }}"></p>
+
+            <p><label for="nssf_branch">Branch:</label>
+            <input type="text" class="form-control" name="nssf_branch" value="{{ svc_provider.nssf_branch }}"></p>
+
+            <p><label for="max_morn">Shift1 limit:</label>
+            <input type="text" class="form-control" name="max_morn" value="{{ svc_provider.max_morn }}"></p>
+
+            <p><label for="max_noon">Shift2 limit:</label>
+            <input type="text" class="form-control" name="max_noon" value="{{ svc_provider.max_noon }}"></p>
+
+            <p><label for="max_eve">Shift3 limit:</label>
+            <input type="text" class="form-control" name="max_eve" value="{{ svc_provider.max_eve }}"></p>
+            
+            <p><label for="max_num">General limit:</label>
+            <input type="text" class="form-control" name="max_num" value="{{ svc_provider.max_num }}"></p>
+
+            <p><label for="unit_cost">Unit cost:</label>
+            <input type="text" class="form-control" name="unit_cost" value="{{ svc_provider.unit_cost }}"></p>            
+
+            <button class="button is-block is-info is-large is-fullwidth">update</button>
+    
+        </form>
+        <div> 
+        <a href="{{ url_for('main.show_all_providers') }}" class="button">Back</a>
+        </div>
+</div>
+{% endblock %}

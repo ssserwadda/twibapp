@@ -1,0 +1,238 @@
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang = "en">
+
+   <head>
+  
+      <style>
+         .div2 {
+           background-color: lightgrey;
+           width: 800px;
+           border: 3px solid green;
+
+           padding: 50px;
+           margin: auto;
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);           
+         }
+
+         .container {
+            height: 100px;
+            position: relative;
+            border: 0px solid green;
+            }
+
+         .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+         }   
+
+         table {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+            }
+         table thead tr {
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-align: left;
+            }
+
+
+         table th,
+         table td {
+               padding: 12px 15px;
+            }
+
+         table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            }
+
+         table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+            }
+
+         table tbody tr:last-of-type {
+            border-bottom: 2px solid #4CAF50;
+            }
+
+         table tbody tr.active-row {
+            font-weight: bold;
+            color: #4CAF50;
+            }
+
+
+         .border-rounded {
+            border-radius: 5px;
+            }
+
+         h3,   
+         h1 {
+            text-align:center;
+            font-family: sans-serif;
+            }
+
+         .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+
+            .div-1 {
+            background-color: #4CAF50;
+            height: 40px;
+            width: 700px;
+            font-size: 10px;
+            color: white;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+            }
+
+            div.container4 {
+            height: 2em;
+            position: relative; 
+            background-color: #4CAF50;
+            
+            }
+            
+            div.container4 p {
+            margin: 0;
+            background: #4CAF50;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%) }            
+
+         </style>
+  
+  </head>
+
+
+
+   <body>
+      
+  
+   <div class = "div2"> 
+
+ 
+      <div class = "container4"> 
+    <p >
+         WELCOME, {{ name }}!
+         
+    </p>
+   </div> 
+   
+
+    <div class="container">
+      <div class = "vertical-center">
+       <a href="{{ url_for('main.get_gym_tocken') }}" class="button">Get a gym coupon </a>
+       <a href="{{ url_for('main.get_food_tocken') }}" class="button">Get a food coupon</a>
+ 
+     </div>
+     </div>
+
+     {% if tockn_count < 1 %}
+     <p>          </p>
+     {% else %}
+
+
+    
+    <h3 class="title">
+        YOUR COUPONS TODAY
+      </h3>    
+          
+    <table>
+        <thead>
+           <tr>
+              <th>Service</th>
+              <th>Coupon</th>
+              <th>Provider</th>
+              <th>Session</th>
+              <th>Date issued</th>
+              <th>Status</th>
+              <th>Update</th>
+
+
+           </tr>
+        </thead>
+        
+        <tbody>
+           {% for tocken in tockens %}
+              <tr>
+                 <td>{{ tocken[10] }}</td>
+                 <td>{{ tocken[4] }}</td> 
+                 <td>{{ tocken[2] }}</td>
+                 <td>{{ tocken[3] }}</td>
+                 <td>{{ tocken[8] }}</td>
+                 <td>{{ tocken[6] }}</td>
+                 <td>
+                  
+                  {% if tocken[6] == 'used' %}
+
+                  {% else %} 
+                     {% if tocken[10] == 'food' %}
+                        <a href="/update2/{{tocken[0]}}">Modify</a>
+                     {% else %} 
+                        <a href="/update/{{tocken[0]}}">Modify</a>
+                     {% endif %}
+                  {% endif %}   
+                  </td>
+                  
+
+              </tr>
+           {% endfor %}
+        </tbody>
+     </table>
+
+     {% endif %}
+     
+ 
+
+
+
+
+    <div class="container">
+      <div class = "vertical-center">
+         <a href="{{ url_for('auth.staff_logout') }}" class="button">Log out</a>
+
+         <a href="{{ url_for('auth.password_change') }}" class="button">Change Password </a>       
+
+      
+     </div>
+     </div>
+
+
+   </div>
+   <div class="container">
+   <div class = "vertical-center">
+
+   
+   </div>
+   </div>
+
+   </body>
+</html>
+{% endblock %}

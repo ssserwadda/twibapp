@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+   <head>
+  
+      <style>
+         .div2 {
+           background-color: lightgrey;
+           width: 800px;
+           border: 0px solid green;
+
+           padding: 50px;
+           margin: auto;
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);           
+         }
+
+         .container {
+            height: 100px;
+            position: relative;
+            border: 0px solid green;
+            }
+
+         .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+         }   
+
+         table {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+            }
+         table thead tr {
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-align: left;
+            }
+
+
+         table th,
+         table td {
+               padding: 12px 15px;
+            }
+
+         table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            }
+
+         table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+            }
+
+         table tbody tr:last-of-type {
+            border-bottom: 2px solid #4CAF50;
+            }
+
+         table tbody tr.active-row {
+            font-weight: bold;
+            color: #4CAF50;
+            }
+
+
+         .border-rounded {
+            border-radius: 5px;
+            }
+
+         h3,   
+         h1 {
+            text-align:center;
+            font-family: sans-serif;
+            }
+
+         .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 15%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            }
+
+            li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: sans-serif;            
+            }
+
+            li a.active {
+            background-color: #4CAF50;
+            color: white;
+            }
+
+            li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+            }
+
+
+            .navbar {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            }
+
+            .navbar a {
+            float: right;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 15px;
+            }
+
+            .navbar a:hover {
+            background: #ddd;
+            color: black;
+            }
+
+            .div-1 {
+            background-color: lightgrey;
+            font-size: 20px;
+            color: red;
+            text-align: center;
+            }
+
+            /* Create three unequal columns that floats next to each other */
+            .column {
+            float: left;
+            padding: 10px;
+
+            }
+
+            .left {
+            width: 20%;
+            }
+
+            .right {
+            width: 35%;
+            }
+            .middle {
+            width: 35%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+            .C3 {
+            width: 70%;
+            float: right;
+            }
+
+
+         </style>
+  
+  </head>
+
+
+
+   <body>
+
+
+      <ul>
+ 
+         <li><a class="active" href="{{ url_for('main.index') }}">HOME</a></li>
+
+
+
+
+         <li><a href="{{ url_for('main.show_all_coupons') }}">ALL COUPONS</a></li>
+         <li><a href="{{ url_for('main.show_used_coupons') }}">USED COUPONS</a></li>
+         <li><a href="{{ url_for('main.show_booked_coupons') }}">NON USED COUPONS</a></li>
+
+         <li><a href="{{ url_for('main.daily_gym_summary') }}">DAILY GYM SUMMARIES</a></li>
+         <li><a href="{{ url_for('main.monthly_gym_summary') }}">MONTHLY GYM SUMMARIES</a></li>
+         <li><a href="{{ url_for('main.daily_food_summary') }}">DAILY FOOD SUMMARIES</a></li>
+         <li><a href="{{ url_for('main.monthly_food_summary') }}">MONTHLY FOOD SUMMARIES</a></li>
+
+         <li><a href="{{ url_for('main.search_by') }}">COUPON SEARCH</a></li>
+         <li><a href="{{ url_for('main.show_all_providers') }}">SERVICE PROVIDERS</a></li>
+         <li><a href="{{ url_for('auth.register_providers') }}">ADD SERVICE PROVIDERS</a></li>         
+         <li><a href="{{ url_for('main.show_end_users') }}">STAFF USERS</a></li>
+         <li><a href="{{ url_for('auth.register_endusers') }}">ADD STAFF USERS</a></li>
+         <li><a href="{{ url_for('auth.register_all_users') }}">ADD ANY USER</a></li>
+         <li><a href="{{ url_for('main.show_all_users') }}">ALL USERS</a></li>
+ 
+         
+             
+
+       </ul>
+
+       {% block content %}
+       {% endblock %}
+
+</body>
+</html>

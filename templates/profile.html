@@ -1,0 +1,87 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<div class="c2">
+   <div class="row">
+     <div class="card">
+       <h3>{{ tokn_used_td }}</h3>
+       <p> Coupons used today</p>
+     </div>
+   </div>
+ 
+   <div class="row">
+     <div class="card">
+       <h3>{{ tokn_booked_td }}</h3>
+       <p>Coupons booked today </p>
+
+     </div>
+   </div>
+   
+   <div class="row">
+     <div class="card">
+       <p>All Coupons used</p>
+       <h3>{{ tokn_used }}</h3>
+     </div>
+   </div>
+
+   <div class="row">
+      <div class="card">
+        <p>All Coupons booked</p>
+        <h3>{{ tokn_booked }}</h3>
+      </div>
+    </div>
+
+</div>
+
+   <div class = "div2">
+
+      <div>
+         
+
+
+    <h3>
+      
+      USED COUPONS 
+
+    </h3>     
+          
+    <table>
+        <thead>
+           <tr>
+              <th>Service</th>
+              <th>Coupon</th>
+              <th>Provider</th>
+              <th>Session</th>
+              <th>Date issued</th>
+              <th>Status</th>
+
+
+           </tr>
+        </thead>
+        
+        <tbody>
+           {% for tocken in tockens %}
+              <tr>
+                 <td>{{ tocken[10] }}</td>
+                 <td>{{ tocken[4] }}</td> 
+                 <td>{{ tocken[2] }}</td>
+                 <td>{{ tocken[3] }}</td>
+                 <td>{{ tocken[8] }}</td>
+                 <td>{{ tocken[6] }}</td>
+
+              </tr>
+           {% endfor %}
+        </tbody>
+     </table>
+     
+ 
+
+
+   </div>
+   
+ 
+{% endblock %}
+
+
+

@@ -1,0 +1,46 @@
+{% extends "base5.html" %}
+
+{% block content %}
+      <h3>
+         {{ headline }}
+          
+      </h3>
+      
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="div-1">
+              {{ messages[0] }}
+          </div>
+      {% endif %}
+      {% endwith %}
+  
+           
+
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Email</th>
+               <th>Name</th>
+               <th>Role</th>
+               <th>Password Reset</th>
+
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for alluser in allusers %}
+               <tr>
+                  <td>{{ alluser.email }}</td>
+                  <td>{{ alluser.name }}</td>
+                  <td>{{ alluser.role }}</td>
+
+                  <td><a href="/reset_passwords/{{alluser.id}}">Reset</a></td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+{% endblock %}

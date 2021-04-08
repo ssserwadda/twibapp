@@ -1,0 +1,34 @@
+{% extends "base4.html" %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+    <div class="column left">
+
+    </div>
+    <div class="column middle" >
+        <h3> COUPONS USED AT {{ gym }}</h3>
+        {% for by_day in by_days %}
+        {{ by_day|safe }}
+    {% endfor %}
+    </div>
+    <div class="column right" >
+      <h3> MONTHLY COUPONS USED</h3>
+      {% for by_month in by_months %}
+        {{ by_month|safe }}
+        {% endfor %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

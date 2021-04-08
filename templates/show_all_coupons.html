@@ -1,0 +1,40 @@
+{% extends "base5.html" %}
+
+{% block content %}
+      <h3>
+         {{ headline }}
+          
+      </h3>
+      
+
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Email</th>
+               <th>Provider</th>
+               <th>Session</th>
+               <th>Coupon</th>
+               <th>Date issued</th>
+               <th>Status</th>
+               <th>Date used</th>
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for tocken in tockens %}
+               <tr>
+                  <td>{{ tocken.email }}</td>
+                  <td>{{ tocken.gym }}</td>
+                  <td>{{ tocken.session }}</td>
+                  <td>{{ tocken.coupon }}</td>
+                  <td>{{ tocken.date_issue }}</td>
+                  <td>{{ tocken.status }}</td>
+                  <td>{{ tocken.use_date }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+{% endblock %}

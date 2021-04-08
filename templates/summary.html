@@ -1,0 +1,17 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+
+<div class = "c3">
+  <h3> {{headline}}</h3>
+  {% for all_total in all_totals %}
+
+  {{ all_total|safe }}
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

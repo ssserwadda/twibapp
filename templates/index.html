@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+ ELECTRONIC COUPONING
+</h1>
+<h2 class="subtitle">
+  Book your self a coupon anytime, anywhere!.
+</h2>
+
+
+
+<button class="ui button"><a href="{{ url_for('main.show_all_coupons') }}" class="btn btn-primary">ALL COUPONS</button>
+
+
+<button class="ui button"><a href="{{ url_for('main.show_used_coupons') }}" class="btn btn-primary">USED COUPONS</button>
+
+<button class="ui button"><a href="{{ url_for('main.search_by') }}" class="btn btn-primary">COUPON SEARCH</button>
+
+</a>
+{% endblock %}

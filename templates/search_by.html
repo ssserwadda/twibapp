@@ -1,0 +1,90 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+<div class="div2">
+    <p style ="text-align: center;">
+        COUPON SEARCH ENGINE
+    </p> 
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="div-1">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+<form method = "post" action="/search_by_results">
+
+   <label for="date1">From:</label>
+   <input type="date" id="date1" name="date1">
+
+   <label for="date2">To:</label>
+   <input type="date" id="date2" name="date2">
+
+       
+
+  
+   <label for="choice">SEARCH BY:</label>
+   <select name="choice" id="choices">
+       <option value="Service">Service</option>
+       <option value="Shift">Shift</option>
+       <option value="Service Provider">Service Provider</option>
+       <option value="Status">Status</option>
+       <option value="Coupon">Coupon</option>
+       <option value="All">All</option>
+   </select>
+   
+   <p></p><label for = "search_item">Search</label>
+   <input type="text" value="{{search_item}}" name="search_item">
+    <input type = "submit" value = "Submit" /></p>
+</form>
+
+
+
+
+
+      
+          {% if tocken_count < 1 %}
+          <p>          </p>
+          {% else %}
+
+          <p style ="text-align: center;">
+            {{ tocken_count }} coupons: ______ {{ choice }} = {{ search_item }} _____  Between: {{ date1 }} __ and __   {{ date2 }}
+          </p>      
+        
+        
+      <table>
+         <thead>
+            <tr>
+               <th>Email</th>
+               <th>Provider</th>
+               <th>Session</th>
+               <th>Coupon</th>
+               <th>Date issued</th>
+               <th>Status</th>
+               <th>Date used</th>
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for tocken in tockens %}
+               <tr>
+                  <td>{{ tocken.email }}</td>
+                  <td>{{ tocken.gym }}</td>
+                  <td>{{ tocken.session }}</td>
+                  <td>{{ tocken.coupon }}</td>
+                  <td>{{ tocken.date_issue }}</td>
+                  <td>{{ tocken.status }}</td>
+                  <td>{{ tocken.use_date }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      {% endif %}
+   </div>
+      
+{% endblock %}  

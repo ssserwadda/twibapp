@@ -1,0 +1,40 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+
+<div class="div2">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="div-1">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+        
+        <form method="POST" action="/register_users">
+
+            <p><label for="email">Email:</label>
+            <input class="input is-large" type="email" name="email" placeholder="Email" autofocus=""></p>
+
+
+            <p><label for="name">Name:</label>
+            <input class="input is-large" type="text" name="name" placeholder="Name" autofocus=""></p>
+
+            <p><label for="role">Role:</label>
+            <input class="input is-large" type="text" name="role" placeholder="Role" autofocus=""></p>
+
+            <p><label for="password">Password:</label>
+            <input class="input is-large" type="password" name="password" placeholder="Password" autofocus=""></p>
+
+
+
+
+            <button class="button is-block is-info is-large is-fullwidth">Register</button>
+
+            <a href="{{ url_for('main.show_all_users') }}" class="button">Back</a>
+        </form>
+</div>
+{% endblock %}

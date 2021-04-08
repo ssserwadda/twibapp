@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Register End users</h3>
+    <div class="box">
+
+
+
+        
+        <form method="POST" action="/register_endusers">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="stno" placeholder="Stno" autofocus="">
+                </div>
+            </div>
+
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="company" placeholder="Company" autofocus="">
+                </div>
+            </div>            
+
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                </div>
+            </div>
+
+
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="phone" placeholder="Phone" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="branch" placeholder="Branch" autofocus="">
+                </div>
+            </div>
+
+
+
+            <button class="button is-block is-info is-large is-fullwidth">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

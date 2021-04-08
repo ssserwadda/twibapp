@@ -1,0 +1,80 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+<div class="div2">
+<form method = "post" action="/search_by_results">
+
+   <label for="date1">From:</label>
+   <input type="date" id="date1" name="date1">
+
+   <label for="date2">To:</label>
+   <input type="date" id="date2" name="date2">
+
+       
+
+  
+   <label for="choice">SEARCH BY:</label>
+   <select name="choice" id="choices">
+       <option value="Service">Service</option>
+       <option value="Shift">Shift</option>
+       <option value="Service Provider">Service Provider</option>
+       <option value="Status">Status</option>
+       <option value="Coupon">Coupon</option>
+       <option value="All">All</option>
+   </select>
+   
+   <p></p><label for = "search_item">Search</label>
+   <textarea name = "search_item" placeholder = "search_item"></textarea></p>
+   
+
+   
+   
+   <input type = "submit" value = "Submit" />
+</form>
+
+
+
+
+     
+        <h1 class="title">
+          {{ tocken_count }} COUPONS
+          </h1> 
+
+      
+          {% if tocken_count < 1 %}
+          <p>          </p>
+          {% else %}
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Email</th>
+               <th>Provider</th>
+               <th>Session</th>
+               <th>Coupon</th>
+               <th>Date issued</th>
+               <th>Status</th>
+               <th>Date used</th>
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for tocken in tockens %}
+               <tr>
+                  <td>{{ tocken.email }}</td>
+                  <td>{{ tocken.gym }}</td>
+                  <td>{{ tocken.session }}</td>
+                  <td>{{ tocken.coupon }}</td>
+                  <td>{{ tocken.date_issue }}</td>
+                  <td>{{ tocken.status }}</td>
+                  <td>{{ tocken.use_date }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      {% endif %}
+   </div>
+      
+{% endblock %}  

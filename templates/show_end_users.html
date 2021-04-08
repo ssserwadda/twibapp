@@ -1,0 +1,47 @@
+{% extends "base5.html" %}
+
+{% block content %}
+      <h3>
+       ALL STAFF USERS
+          
+      </h3>
+      
+      
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Stno</th>
+               <th>Name</th>
+               <th>Company</th>
+               <th>Email</th>
+               <th>Phone</th>
+               <th>Branch</th>
+               <th>Modify</th>
+               <th>Delete</th>
+
+
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for eu in eus %}
+               <tr>
+                  <td>{{ eu.stno }}</td>
+                  <td>{{ eu.name }}</td>
+                  <td>{{ eu.company }}</td>
+                  <td>{{ eu.email }}</td>
+                  <td>{{ eu.phone }}</td>
+                  <td>{{ eu.branch }}</td>
+                  <td><a href="/update_end_users/{{eu.id}}">Modify</a></td>
+                  <td><a href="/delete_end_users/{{ eu.id }}" >Delete</a></td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   
+
+
+
+{% endblock %}
